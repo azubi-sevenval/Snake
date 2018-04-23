@@ -1,35 +1,33 @@
 ﻿using System;
-using System.Windows.Forms;
 
 namespace ListardDemo {
   class Snake {
-    private int width;
-    private int height;
-
-    public Snake (int width, int height) {
-      this.width = width;
-      this.height = height;
+    public Snake () {
       Console.ForegroundColor = ConsoleColor.Black;
-      Console.SetCursorPosition(width / 2, height / 2);
-      Console.CursorSize = 100;
+      //Console.SetCursorPosition(25, 10);
       Console.CursorVisible = true;
+	  //Console.CursorSize = 100; Mac imcomp
+
+      // Die Schlange startet initial mit der Länge 3
+      Position[] snek = new Position[3];
+      for (int i = 0; i < 3; ++i)
+      {
+        snek[i] = new Position(i + 20, 10);
+      }
+      
+      // Rendert die Positionen der Schlange
+      for (int i = 0; i < snek.Length; i++) {
+        Console.SetCursorPosition(snek[i].x, snek[i].y);
+        Console.Write("O");
+      }
     }
 
-    private void Move(object sender, KeyPressEventArgs e) {
-      switch (e.KeyCode) {
-        case Up:
-          Console.WriteLine("Up!");
-        break;
-        case Left:
-          //
-        break;
-        case Down:
-          //
-        break;
-        case Right:
-          //
-        break;
-      }
+    public void Move() {
+     // calculates new Position and Push, Pop from snek       
+    }
+
+    public void Eat() {
+     // extends when Snake eats Food --> extend array and push new Position       
     }
   }
 }
