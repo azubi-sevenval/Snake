@@ -1,35 +1,44 @@
 ﻿using System;
-using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace ListardDemo {
   class Snake {
-    private int width;
-    private int height;
+    List<Position> snek = new List<Position>();
 
-    public Snake (int width, int height) {
-      this.width = width;
-      this.height = height;
+    public Snake () {
       Console.ForegroundColor = ConsoleColor.Black;
-      Console.SetCursorPosition(width / 2, height / 2);
-      Console.CursorSize = 100;
       Console.CursorVisible = true;
+      //Console.CursorSize = 100; Mac imcomp
+
+      // Die Schlange startet initial mit der Länge 3
+      Position a = new Position(21, 10);
+      Position b = new Position(22, 10);
+      Position c = new Position(23, 10);
+      snek.Add(a);
+      snek.Add(b);
+      snek.Add(c);
     }
 
-    private void Move(object sender, KeyPressEventArgs e) {
-      switch (e.KeyCode) {
-        case Up:
-          Console.WriteLine("Up!");
-        break;
-        case Left:
-          //
-        break;
-        case Down:
-          //
-        break;
-        case Right:
-          //
-        break;
-      }
+    public void Render()
+    {
+       foreach(var position in snek) {
+         Console.SetCursorPosition(position.x, position.y);
+         Console.Write("O");
+       }
+    }
+
+    public void Move() {
+      Position snakeHead = snek[snek.Count - 1];
+      Position next = new Position(snakeHead.x + 1, snakeHead.y);
+      snek.Add(next);
+
+      Position snakeTail = snek[snek.Count - snek.Count];
+      snek.RemoveAt(0);
+    }
+
+    public void Eat() {
+            // if snakeHead == Food => snek.Add(Food)
+            // snek.Update();
     }
   }
 }

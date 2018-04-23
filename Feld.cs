@@ -9,8 +9,9 @@ namespace ListardDemo {
       this.width = Console.WindowWidth - 1;
       this.height = Console.WindowHeight;
       Console.BackgroundColor = ConsoleColor.Green;
+      // Console.SetBufferSize(width, height); Mac incomp
+      Console.SetCursorPosition(50, 50);
       Console.Clear();
-      Snake snek = new Snake(width, height);
-	  }
+    }
   }
 }

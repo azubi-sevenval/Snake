@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 namespace ListardDemo {
   class Game {
     static void Main(string[] args) {
-      Position Udo = new Position(1,1);
-      Feld Heinz = new Feld();
-      Listard<Position> Uwe = new Listard<Position>(Udo);
+      Feld feld = new Feld();
+      Snake snek = new Snake();
 
-      bool condition = true;
-      while (condition) {
+      bool isAlive = true;
+      while (isAlive) {
         Task.Delay(200).Wait();
-        Console.Write("O");
+                snek.Move();
+        snek.Render();
       }
+
       Console.ReadLine();
     }
   }
