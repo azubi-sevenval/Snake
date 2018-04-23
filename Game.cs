@@ -13,7 +13,10 @@ namespace ListardDemo {
       bool isAlive = true;
       while (isAlive) {
         Task.Delay(200).Wait();
+                snek.Move();
+        snek.Render();
       }
+
       Console.ReadLine();
     }
   }

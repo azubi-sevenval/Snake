@@ -1,33 +1,44 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ListardDemo {
   class Snake {
+    List<Position> snek = new List<Position>();
+
     public Snake () {
       Console.ForegroundColor = ConsoleColor.Black;
-      //Console.SetCursorPosition(25, 10);
       Console.CursorVisible = true;
-	  //Console.CursorSize = 100; Mac imcomp
+      //Console.CursorSize = 100; Mac imcomp
 
       // Die Schlange startet initial mit der Länge 3
-      Position[] snek = new Position[3];
-      for (int i = 0; i < 3; ++i)
-      {
-        snek[i] = new Position(i + 20, 10);
-      }
-      
-      // Rendert die Positionen der Schlange
-      for (int i = 0; i < snek.Length; i++) {
-        Console.SetCursorPosition(snek[i].x, snek[i].y);
-        Console.Write("O");
-      }
+      Position a = new Position(21, 10);
+      Position b = new Position(22, 10);
+      Position c = new Position(23, 10);
+      snek.Add(a);
+      snek.Add(b);
+      snek.Add(c);
+    }
+
+    public void Render()
+    {
+       foreach(var position in snek) {
+         Console.SetCursorPosition(position.x, position.y);
+         Console.Write("O");
+       }
     }
 
     public void Move() {
-     // calculates new Position and Push, Pop from snek       
+      Position snakeHead = snek[snek.Count - 1];
+      Position next = new Position(snakeHead.x + 1, snakeHead.y);
+      snek.Add(next);
+
+      Position snakeTail = snek[snek.Count - snek.Count];
+      snek.RemoveAt(0);
     }
 
     public void Eat() {
-     // extends when Snake eats Food --> extend array and push new Position       
+            // if snakeHead == Food => snek.Add(Food)
+            // snek.Update();
     }
   }
 }
