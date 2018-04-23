@@ -1,5 +1,3 @@
-﻿using System;
-
 namespace ListardDemo {
   class Position {
     public int x, y;
