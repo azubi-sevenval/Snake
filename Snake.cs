@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
-namespace ListardDemo {
+namespace Snake {
   class Snake {
     List<Position> snek = new List<Position>();
 
@@ -19,10 +20,10 @@ namespace ListardDemo {
       snek.Add(c);
     }
 
-    public void Render()
+    public void Draw()
     {
-       foreach(var position in snek) {
-         Console.SetCursorPosition(position.x, position.y);
+       foreach(var pos in snek) {
+         Console.SetCursorPosition(pos.x, pos.y);
          Console.Write("O");
        }
     }
@@ -32,8 +33,11 @@ namespace ListardDemo {
       Position next = new Position(snakeHead.x + 1, snakeHead.y);
       snek.Add(next);
 
-      Position snakeTail = snek[snek.Count - snek.Count];
-      snek.RemoveAt(0);
+      if(snek.Count > 1) {
+          snek.RemoveAt(0);
+          Console.SetCursorPosition(snek[0].x, snek[0].y);
+          Console.Write("\b \b");
+      }
     }
 
     public void Eat() {

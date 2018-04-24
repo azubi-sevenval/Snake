@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ListardDemo {
+namespace Snake {
   class Game {
     static void Main(string[] args) {
       Feld feld = new Feld();
@@ -13,8 +13,8 @@ namespace ListardDemo {
       bool isAlive = true;
       while (isAlive) {
         Task.Delay(200).Wait();
-                snek.Move();
-        snek.Render();
+        snek.Move();
+        snek.Draw();
       }
 
       Console.ReadLine();
