@@ -40,6 +40,10 @@ namespace Snake {
                     }
                 }
 
+                if(snek.Head().x == Console.WindowWidth - 1 && snek.Head().y == Console.WindowHeight - 1) {
+                    Console.Write("GAME OVER!");
+                }
+
                 food.Spawn();
                 snek.Move(Direction(currentDirection));
                 snek.Draw();

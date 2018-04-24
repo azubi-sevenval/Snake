@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Snake {
   class Snake {
-    List<Position> snek = new List<Position>();
+    public List<Position> snek = new List<Position>();
             
-
     public Snake () {
       Console.ForegroundColor = ConsoleColor.Black;
       Console.CursorVisible = true;
@@ -39,6 +39,11 @@ namespace Snake {
           Console.Clear();
       }
     }
+
+     public Position Head() {
+         Position snakeHead = snek[snek.Count - 1];
+         return snakeHead;
+     }
 
     public void Eat() {
             // if snakeHead == Food => snek.Add(Food)
