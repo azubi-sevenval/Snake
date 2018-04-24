@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Snake {
     class Game
     {
-        static System.ConsoleKey currentDirection = ConsoleKey.RightArrow;
+        static System.ConsoleKey currentDirection = ConsoleKey.D;
 
         static void Main(string[] args)
         {
@@ -40,9 +40,9 @@ namespace Snake {
                     }
                 }
 
+                food.Spawn();
                 snek.Move(Direction(currentDirection));
                 snek.Draw();
-                food.Spawn();
             }
 
             Console.ReadLine();
@@ -56,16 +56,16 @@ namespace Snake {
 
             switch (dir)
             {
-                case ConsoleKey.UpArrow:
-                    return MOV_UP;
-                case ConsoleKey.RightArrow:
-                    return MOV_RIGHT;
-                case ConsoleKey.DownArrow:
-                    return MOV_DOWN;
-                case ConsoleKey.LeftArrow:
-                    return MOV_LEFT;
-                default:
-                    return MOV_RIGHT;
+              case ConsoleKey.UpArrow:
+                  return MOV_UP;
+              case ConsoleKey.RightArrow:
+                  return MOV_RIGHT;
+              case ConsoleKey.DownArrow:
+                  return MOV_DOWN;
+              case ConsoleKey.LeftArrow:
+                  return MOV_LEFT;
+              default:
+                  return MOV_RIGHT;
             }
         }
     }

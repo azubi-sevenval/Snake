@@ -5,6 +5,7 @@ using System.Collections.Generic;
 namespace Snake {
   class Snake {
     List<Position> snek = new List<Position>();
+            
 
     public Snake () {
       Console.ForegroundColor = ConsoleColor.Black;
@@ -35,8 +36,7 @@ namespace Snake {
 
       if(snek.Count > 1) {
           snek.RemoveAt(0);
-          Console.SetCursorPosition(snek[0].x, snek[0].y);
-          Console.Write("\b \b");
+          Console.Clear();
       }
     }
 

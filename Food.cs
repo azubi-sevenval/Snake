@@ -6,7 +6,7 @@ namespace Snake {
     Random rnd = new Random();
     List<Position> food = new List<Position>();
 
-    public void Spawn() {
+      public void Spawn() {
         Console.ForegroundColor = ConsoleColor.Red;
         int posX = rnd.Next(1, Console.WindowWidth - 1);
         int posY = rnd.Next(1, Console.WindowHeight);
