@@ -1,16 +1,29 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace ListardDemo {
+namespace Snake {
   class Food {
     Random rnd = new Random();
-    private int width;
-    private int height;
+    List<Position> food = new List<Position>();
 
-    public Food() {
-      this.width = rnd.Next(1, Console.WindowWidth - 1);
-      this.height = rnd.Next(1, Console.WindowHeight);
-      Console.ForegroundColor = ConsoleColor.Red;
-      Console.SetCursorPosition(width, height);
+      public void Spawn() {
+        Console.ForegroundColor = ConsoleColor.Red;
+        int posX = rnd.Next(1, Console.WindowWidth - 1);
+        int posY = rnd.Next(1, Console.WindowHeight);
+
+        if(food.Count == 0) {
+            Position createFood = new Position(posX, posY);
+            food.Add(createFood);
+            Console.SetCursorPosition(posX, posY);
+            Console.Write("#");
+        }
+        Console.ForegroundColor = ConsoleColor.Black;
+    }
+
+    public void Despawn() {
+        Console.SetCursorPosition(food[0].x, food[0].y);
+        Console.Write("\b");
+        food.RemoveAt(0);
     }
   }
 }

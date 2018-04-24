@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ListardDemo {
+namespace Snake {
   public class Feld {
     private int width;
     private int height;

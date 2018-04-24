@@ -7,5 +7,6 @@
 
   <ItemGroup>
     <Compile Remove="Program.cs" />
+    <Compile Remove="World.cs" />
   </ItemGroup>
 </Project>

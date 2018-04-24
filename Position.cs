@@ -1,4 +1,6 @@
-namespace ListardDemo {
+﻿using System;
+
+namespace Snake {
   class Position {
     public int x, y;
 
