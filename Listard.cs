@@ -3,11 +3,6 @@
 namespace ListardDemo {
   public class Listard<T> {
     public T[] values = new T[0];
-    private T Udo;
-
-    public Listard(T Udo) {
-      this.Udo = Udo;
-    }
 
     public T[] Push(T value) {
       T[] newarray = new T[values.Length + 1];
