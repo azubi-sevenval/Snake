@@ -9,9 +9,7 @@ namespace Snake {
             
     public Snake () {
       Console.ForegroundColor = ConsoleColor.Black;
-      Console.CursorVisible = true;
-      // Console.CursorSize = 0;
-
+    
       // Die Schlange startet initial mit der Länge 3
       Position a = new Position(21, 10);
       Position b = new Position(22, 10);
@@ -45,9 +43,8 @@ namespace Snake {
          return snakeHead;
      }
 
-    public void Eat() {
-            // if snakeHead == Food => snek.Add(Food)
-            // snek.Draw);
+    public void Eat(Position food) {
+        snek.Add(food);
     }
   }
 }
