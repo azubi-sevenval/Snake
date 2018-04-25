@@ -2,10 +2,10 @@
 
 namespace Snake {
   public class Feld {
-    private int width;
-    private int height;
+    int width;
+    int height;
 
-    public Feld() {
+    public Feld(int width, int height) {
       this.width = Console.WindowWidth - 1;
       this.height = Console.WindowHeight;
       Console.BackgroundColor = ConsoleColor.Green;

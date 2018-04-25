@@ -6,7 +6,7 @@ namespace Snake {
     Random rnd = new Random();
     List<Position> food = new List<Position>();
 
-      public void Spawn() {
+    public void Spawn() {
         Console.ForegroundColor = ConsoleColor.Red;
         int posX = rnd.Next(1, Console.WindowWidth - 1);
         int posY = rnd.Next(1, Console.WindowHeight);
@@ -18,12 +18,16 @@ namespace Snake {
             Console.Write("#");
         }
         Console.ForegroundColor = ConsoleColor.Black;
-    }
 
-    public void Despawn() {
-        Console.SetCursorPosition(food[0].x, food[0].y);
-        Console.Write("\b");
-        food.RemoveAt(0);
-    }
+            Console.WriteLine(posX);
+            Console.WriteLine(posY);
+        }
+
+        // evtl. durch neue posX / posY bestimmen?
+    //public void Despawn() {
+    //    Console.SetCursorPosition(food[0].x, food[0].y);
+    //    Console.Write("\b");
+    //    food.RemoveAt(0);
+    //}
   }
 }

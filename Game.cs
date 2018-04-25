@@ -11,7 +11,7 @@ namespace Snake {
 
         static void Main(string[] args)
         {
-            Feld feld = new Feld();
+            Feld feld = new Feld(10, 10);
             Snake snek = new Snake();
             Food food = new Food();
 
@@ -22,21 +22,21 @@ namespace Snake {
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo userInput = Console.ReadKey(true);
-                    if (userInput.Key == ConsoleKey.LeftArrow && currentDirection != ConsoleKey.RightArrow)
+                    if (userInput.Key == ConsoleKey.A && currentDirection != ConsoleKey.D)
                     {
-                        currentDirection = ConsoleKey.LeftArrow;
+                        currentDirection = ConsoleKey.A;
                     }
-                    if (userInput.Key == ConsoleKey.RightArrow && currentDirection != ConsoleKey.LeftArrow)
+                    if (userInput.Key == ConsoleKey.D && currentDirection != ConsoleKey.A)
                     {
-                        currentDirection = ConsoleKey.RightArrow;
+                        currentDirection = ConsoleKey.D;
                     }
-                    if (userInput.Key == ConsoleKey.UpArrow && currentDirection != ConsoleKey.DownArrow)
+                    if (userInput.Key == ConsoleKey.W && currentDirection != ConsoleKey.S) // replace with WASD?
                     {
-                        currentDirection = ConsoleKey.UpArrow;
+                        currentDirection = ConsoleKey.W;
                     }
-                    if (userInput.Key == ConsoleKey.DownArrow && currentDirection != ConsoleKey.UpArrow)
+                    if (userInput.Key == ConsoleKey.S && currentDirection != ConsoleKey.W)
                     {
-                        currentDirection = ConsoleKey.DownArrow;
+                        currentDirection = ConsoleKey.S;
                     }
                 }
 
@@ -44,11 +44,11 @@ namespace Snake {
                     Console.Write("GAME OVER!");
                 }
 
-                food.Spawn();
+                //food.Spawn();
                 snek.Move(Direction(currentDirection));
                 snek.Draw();
             }
-
+            food.Spawn();
             Console.ReadLine();
         }
 
@@ -60,13 +60,13 @@ namespace Snake {
 
             switch (dir)
             {
-              case ConsoleKey.UpArrow:
+              case ConsoleKey.W:
                   return MOV_UP;
-              case ConsoleKey.RightArrow:
+              case ConsoleKey.D:
                   return MOV_RIGHT;
-              case ConsoleKey.DownArrow:
+              case ConsoleKey.S:
                   return MOV_DOWN;
-              case ConsoleKey.LeftArrow:
+              case ConsoleKey.A:
                   return MOV_LEFT;
               default:
                   return MOV_RIGHT;
